@@ -1,7 +1,7 @@
 {
 	"name": "passwallet",
 	"version": "0.0.1",
-	"author": "Simon Mayes <simon.mayes@mayeskennedy.co.uk>",
+	"author": "Mayes, Kennedy & Company <support@mayeskennedy.co.uk>",
 	"description": "An implementation of Attido Mobile's PassWallet API",
 	"scripts": {
 		"test": "NODE_PATH=lib node_modules/expresso/.bin/expresso test/*"
