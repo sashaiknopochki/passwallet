@@ -67,7 +67,7 @@ describe('API', function() {
 				.post(registerRequest.url)
 				.set(registerRequest.headers)
 				.send(registerRequest.data)
-				.expect(202, done); // Created
+				.expect(201, done); // Created
 		});
 		it('register device again', function(done) {
 			request(app)
