@@ -19,10 +19,23 @@ var Pass = function (attributes) {
 		}
 	}
 };
-Pass.prototype.pushServiceUrl = null;
+Pass.prototype.passTypeIdentifier = Pass.prototype.serialNumber = Pass.prototype.authenticationToken = Pass.prototype.pushServiceUrl = null;
+
+Pass.all = function (query, callback) {
+	callback(null, [passes[0]]);
+};
 
 var Registration = function (attributes) {
+	if ('object' === typeof attributes) {
+		for (var attribute in attributes) {
+			this[attribute] = attributes[attribute];
+		}
+	}
+};
+Registration.prototype.deviceLibraryIdentifier = null;
 
+Registration.all = function (query, callback) {
+	callback(new Error('Not implemented'), []);
 };
 
 var passes = [
@@ -47,17 +60,30 @@ describe('API', function() {
 	describe('load', function () {
 		beforeEach(function() {
 			passwallet.Pass = undefined;
-		});
-		it('good pass model', function(done) {
-			passwallet.loadPass(Pass);
-			assert.equal(passwallet.Pass, Pass);
-			done();
+			passwallet.Registration = undefined;
 		});
 		it('bad pass model', function(done) {
 			assert.throws(function () {
 				passwallet.loadPass(function() {});
 			});
 			assert.equal(passwallet.Pass, undefined);
+			done();
+		});
+		it('good pass model', function(done) {
+			passwallet.loadPass(Pass);
+			assert.equal(passwallet.Pass, Pass);
+			done();
+		});
+		it('bad registration model', function(done) {
+			assert.throws(function () {
+				passwallet.loadRegistration(function() {});
+			});
+			assert.equal(passwallet.Registration, undefined);
+			done();
+		});
+		it('good registration model', function(done) {
+			passwallet.loadRegistration(Registration);
+			assert.equal(passwallet.Registration, Registration);
 			done();
 		});
 	});
