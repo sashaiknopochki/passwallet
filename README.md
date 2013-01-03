@@ -1,7 +1,9 @@
 #About [![Build Status](https://travis-ci.org/mayeskennedy/passbook.png)](https://travis-ci.org/mayeskennedy/passbook)
 =====
 
-passwallet is a [Connect](http://senchalabs.github.com/connect/) and [Express](http://expressjs.com/) middleware for [Attido Mobile's PassWallet](http://passwallet.attidomobile.com).
+passwallet is a [Connect](http://senchalabs.github.com/connect/) and [Express](http://expressjs.com/) middleware for [Attido Mobile's](http://attidomobile.com) [PassWallet](http://passwallet.attidomobile.com) API.
+
+Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for the rest of us (currently supports Android and BlackBerry, others to follow).
 
 ## Installation
 
