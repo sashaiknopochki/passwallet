@@ -1,0 +1,20 @@
+{
+	"name": "passwallet",
+	"version": "0.0.1",
+	"author": "Simon Mayes <simon.mayes@mayeskennedy.co.uk>",
+	"description": "An implementation of Attido Mobile's PassWallet API",
+	"keywords": [
+		"passbook",
+		"passwallet"
+	],
+	"dependencies": {
+
+	},
+	"devDependencies": {
+
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=0.8.14"
+	}
+}
