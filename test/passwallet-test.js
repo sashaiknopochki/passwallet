@@ -21,6 +21,10 @@ var Pass = function (attributes) {
 };
 Pass.prototype.pushServiceUrl = null;
 
+var Registration = function (attributes) {
+
+};
+
 var passes = [
 	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC123', authenticationToken: 'abcdefgh12345678'}),
 	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC124', authenticationToken: 'abcdefgh12345679'}),
