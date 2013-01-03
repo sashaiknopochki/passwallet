@@ -31,11 +31,11 @@ var registerRequest = {
 	timeout: 500,
 	method: 'POST',
 	headers: {
-		Authorization: 'AttidoPass '
+		Authorization: 'AttidoPass ' + passes[0].authenticationToken
 	},
 	data: {
-		pushToken: '',
-		pushServiceUrl: ''
+		pushToken: 'randomDeviceString',
+		pushServiceUrl: 'https://some.rand/domain'
 	}
 };
 
