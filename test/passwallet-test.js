@@ -12,12 +12,18 @@ var webServiceURL = '',
 	passTypeIdentifier = 'y',
 	serialNumber = 'z';
 
-var Pass = function() {
-
+var Pass = function (attributes) {
+	if ('object' === typeof attributes) {
+		for (var attribute in attributes) {
+			this[attribute] = attributes[attribute];
+		}
+	}
 };
+Pass.prototype.pushServiceUrl = null;
 
 var passes = [
-
+	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC123', authenticationToken: 'abcdefgh12345678'}),
+	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC124', authenticationToken: 'abcdefgh12345679'}),
 ];
 
 var registerRequest = {
@@ -39,15 +45,13 @@ describe('API', function() {
 			passwallet.Pass = undefined;
 		});
 		it('good pass model', function(done) {
-			var pass = {pushServiceURL: null};
-			passwallet.loadPass(pass);
-			assert.equal(passwallet.Pass, pass);
+			passwallet.loadPass(Pass);
+			assert.equal(passwallet.Pass, Pass);
 			done();
 		});
 		it('bad pass model', function(done) {
-			var pass = {};
 			assert.throws(function () {
-				passwallet.loadPass(pass);
+				passwallet.loadPass(function() {});
 			});
 			assert.equal(passwallet.Pass, undefined);
 			done();
