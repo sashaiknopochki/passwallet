@@ -3,6 +3,14 @@
 	"version": "0.0.1",
 	"author": "Simon Mayes <simon.mayes@mayeskennedy.co.uk>",
 	"description": "An implementation of Attido Mobile's PassWallet API",
+	"scripts": {
+
+	},
+	"main": "./lib/passwallet",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mayeskennedy/passwallet.git"
+	},
 	"keywords": [
 		"passbook",
 		"passwallet"
