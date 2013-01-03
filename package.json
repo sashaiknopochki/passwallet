@@ -4,7 +4,7 @@
 	"author": "Mayes, Kennedy & Company <support@mayeskennedy.co.uk>",
 	"description": "An implementation of Attido Mobile's PassWallet API",
 	"scripts": {
-		"test": "NODE_PATH=lib node_modules/expresso/.bin/expresso test/*"
+		"test": "NODE_PATH=lib make test-all"
 	},
 	"main": "./lib/passwallet",
 	"repository": {
@@ -20,8 +20,9 @@
 
 	},
 	"devDependencies": {
-		"expresso": 	">=0.9.2",
-		"connect":		">=2.7.1"
+		"express":		">=3.0.5",
+		"mocha": 		">=1.7.4",
+		"supertest":	">=0.5.1"
 	},
 	"license": "MIT",
 	"engines": {
