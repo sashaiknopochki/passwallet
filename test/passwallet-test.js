@@ -62,6 +62,8 @@ describe('API', function() {
 		before(function() {
 			// this needs to be delayed because in MVC models aren't typically loaded until way after the middleware
 			passwallet.loadPass(Pass);
+			passwallet.loadRegistration(Registration);
+			passwallet.loadDevice(Device);
 		});
 		it('register device', function(done) {
 			request(app)
