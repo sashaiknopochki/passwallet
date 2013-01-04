@@ -7,6 +7,11 @@ var Device = function (attributes) {
 };
 Device.prototype.deviceLibraryIdentifier = null;
 Device.devices = [];
+Device.create = function (attributes, callback) {
+	var device = new Device(attributes);
+	Device.devices.push(device);
+	callback(null, [device]);
+};
 Device.all = function (query, callback) {
 	for (var i in Device.devices) {
 		var device = Device.devices[i];
