@@ -24,3 +24,8 @@ Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for t
 ## Run tests
 
 	$ npm test
+
+## Credits
+
+  - [Simon Mayes](https://github.com/simonmayes)
+  - Project sponsored and funded by [Mayes, Kennedy & Company](http://mayeskennedy.co.uk)
