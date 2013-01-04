@@ -20,3 +20,7 @@ Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for t
 	// when models have loaded
 	passwallet.loadPass(Pass/*Some model*/);
 	passwallet.loadPass(Registration/*Some model*/);
+
+## Run tests
+
+	$ npm test
