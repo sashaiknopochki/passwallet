@@ -1,6 +1,6 @@
 {
 	"name": "passwallet",
-	"version": "0.0.5",
+	"version": "0.1.0",
 	"author": "Mayes, Kennedy & Company <support@mayeskennedy.co.uk>",
 	"description": "An implementation of Attido Mobile's PassWallet API",
 	"scripts": {
