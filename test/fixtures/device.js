@@ -5,6 +5,7 @@ var Device = function (attributes) {
 		}
 	}
 };
+Device.prototype.deviceLibraryIdentifier = null;
 Device.devices = [];
 Device.all = function (query, callback) {
 	for (var i in Device.devices) {
