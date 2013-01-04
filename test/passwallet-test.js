@@ -10,9 +10,9 @@ var app = express()
 var webServiceURL = '',
 	version = 1;
 
-var Pass = require('./fixtures/pass'),
-	Registration = require('./fixtures/registration'),
-	Device = require('./fixtures/device');
+var Pass = require('./support/pass'),
+	Registration = require('./support/registration'),
+	Device = require('./support/device');
 
 var registerRequest = {
 	url: webServiceURL+'/'+version+'/devices/'+Pass.passes[0].deviceLibraryIdentifier+'/registrations_attido/'+Pass.passes[0].passTypeIdentifier+'/'+Pass.passes[0].serialNumber,
