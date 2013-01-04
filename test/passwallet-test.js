@@ -4,51 +4,22 @@ var express = require('express'),
 	assert = require('assert');
 
 var app = express()
+		.use(express.bodyParser())
 		.use(passwallet.middleware());
 
 var webServiceURL = '',
-	version = 1,
-	deviceLibraryIdentifier = 'x',
-	passTypeIdentifier = 'y',
-	serialNumber = 'z';
+	version = 1;
 
-var Pass = function (attributes) {
-	if ('object' === typeof attributes) {
-		for (var attribute in attributes) {
-			this[attribute] = attributes[attribute];
-		}
-	}
-};
-Pass.prototype.passTypeIdentifier = Pass.prototype.serialNumber = Pass.prototype.authenticationToken = Pass.prototype.pushServiceUrl = null;
-
-Pass.all = function (query, callback) {
-	callback(null, [passes[0]]);
-};
-
-var Registration = function (attributes) {
-	if ('object' === typeof attributes) {
-		for (var attribute in attributes) {
-			this[attribute] = attributes[attribute];
-		}
-	}
-};
-Registration.prototype.deviceLibraryIdentifier = null;
-
-Registration.all = function (query, callback) {
-	callback(new Error('Not implemented'), []);
-};
-
-var passes = [
-	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC123', authenticationToken: 'abcdefgh12345678'}),
-	new Pass({passTypeIdentifier: 'pass.com.mayeskennedy.attido-pass', serialNumber: 'ABC124', authenticationToken: 'abcdefgh12345679'}),
-];
+var Pass = require('./fixtures/pass'),
+	Registration = require('./fixtures/registration'),
+	Device = require('./fixtures/device');
 
 var registerRequest = {
-	url: webServiceURL+'/'+version+'/devices/'+deviceLibraryIdentifier+'/registrations_attido/'+passTypeIdentifier+'/'+serialNumber,
+	url: webServiceURL+'/'+version+'/devices/'+Pass.passes[0].deviceLibraryIdentifier+'/registrations_attido/'+Pass.passes[0].passTypeIdentifier+'/'+Pass.passes[0].serialNumber,
 	timeout: 500,
 	method: 'POST',
 	headers: {
-		Authorization: 'AttidoPass ' + passes[0].authenticationToken
+		Authorization: 'AttidoPass ' + Pass.passes[0].authenticationToken
 	},
 	data: {
 		pushToken: 'randomDeviceString',
@@ -109,7 +80,7 @@ describe('API', function() {
 		it('bad authorisation', function(done) {
 			request(app)
 				.post(registerRequest.url)
-				// .set(registerRequest.headers)
+				.set('Authorization', 'AttidoPass abcde')
 				.send(registerRequest.data)
 				.expect(401, done); // Unauthorised
 		});
@@ -117,17 +88,26 @@ describe('API', function() {
 			request(app)
 				.post(registerRequest.url)
 				.set(registerRequest.headers)
-				.send(registerRequest.data)
+				.send({})
 				.expect(400, done); // Bad Request
 		});
 	});
 	describe('push update notification', function() {
 		it('single', function(done) {
-			passwallet.pushUpdate({}, function (err, passes) {
-				if (err) throw err;
-				assert.equal(null, passes);
-				done();
+			assert.doesNotThrow(function () {
+				passwallet.pushUpdate(Pass.passes, function (err, passes) {
+					if (err) throw err;
+				});
 			});
+			done();
+		});
+		it('multiple', function(done) {
+			assert.doesNotThrow(function () {
+				passwallet.pushUpdate(Pass.passes, function (err, passes) {
+					if (err) throw err;
+				});
+			});
+			done();
 		});
 	});
 });
