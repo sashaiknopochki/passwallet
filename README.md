@@ -42,13 +42,13 @@ Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for t
 
 	Device.pwFind = function ({
 		deviceLibraryIdentifier: ?
-	}, function (err, registration));
+	}, function (err, device));
 
 	Device.pwCreate = function ({
 		deviceLibraryIdentifier: ?,
 		pushToken: ?,
 		pushServiceUrl: ?
-	}, function (err, registration));
+	}, function (err, device));
 
 ## Run tests
 
