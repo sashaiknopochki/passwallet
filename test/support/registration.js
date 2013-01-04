@@ -7,11 +7,7 @@ var Registration = module.exports = function (attributes) {
 };
 Registration.prototype.deviceLibraryIdentifier = null;
 Registration.registrations = [];
-Registration.create = function (attributes, callback) {
-	var registration = new Registration(attributes);
-	Registration.registrations.push(registration);
-	callback(null, [registration]);
-};
+
 Registration.all = function (query, callback) {
 	for (var i in Registration.registrations) {
 		var registration = Registration.registrations[i];
@@ -22,4 +18,18 @@ Registration.all = function (query, callback) {
 		}
 	}
 	return callback(null, []);
+};
+
+Registration.pwFind = function (query, callback) {
+	Registration.all({
+		where: query
+	}, function (err, registrations) {
+		callback(err, registrations[0]?registrations[0]:null);
+	});
+};
+
+Registration.pwCreate = function (attributes, callback) {
+	var registration = new Registration(attributes);
+	Registration.registrations.push(registration);
+	callback(null, [registration]);
 };

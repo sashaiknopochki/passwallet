@@ -20,3 +20,11 @@ Pass.all = function (query, callback) {
 	}
 	return callback(null, []);
 };
+
+Pass.pwFind = function (query, callback) {
+	Pass.all({
+		where: query
+	}, function (err, passes) {
+		callback(err, passes[0]?passes[0]:null);
+	});
+};

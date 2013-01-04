@@ -20,6 +20,35 @@ Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for t
 	// when models have loaded
 	passwallet.loadPass(Pass/*Some model*/);
 	passwallet.loadPass(Registration/*Some model*/);
+	passwallet.loadPass(Device/*Some model*/);
+
+## Required functions
+	Pass.pwFind = function ({
+		passTypeIdentifier: ?,
+		serialNumber: ?
+	}, function (err, pass));
+
+	Registration.pwFind = function ({
+		deviceLibraryIdentifier: ?,
+		passTypeIdentifier: ?,
+		serialNumber: ?
+	}, function (err, registration));
+
+	Registration.pwCreate = function ({
+		deviceLibraryIdentifier: ?,
+		passTypeIdentifier: ?,
+		serialNumber: ?
+	}, function (err, registration));
+
+	Device.pwFind = function ({
+		deviceLibraryIdentifier: ?
+	}, function (err, registration));
+
+	Device.pwCreate = function ({
+		deviceLibraryIdentifier: ?,
+		pushToken: ?,
+		pushServiceUrl: ?
+	}, function (err, registration));
 
 ## Run tests
 
@@ -27,5 +56,5 @@ Think [Apple's iOS Passbook](http://www.apple.com/ios/whats-new/#passbook) for t
 
 ## Credits
 
-  - [Simon Mayes](https://github.com/simonmayes)
+  - [Simon Mayes](https://github.com/msyea)
   - Project sponsored and funded by [Mayes, Kennedy & Company](http://mayeskennedy.co.uk)
