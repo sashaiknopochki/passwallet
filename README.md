@@ -1,4 +1,4 @@
-#About [![Build Status](https://travis-ci.org/mayeskennedy/passbook.png)](https://travis-ci.org/mayeskennedy/passbook)
+#About [![Build Status](https://travis-ci.org/mayeskennedy/passwallet.png)](https://travis-ci.org/mayeskennedy/passwallet)
 =====
 
 passwallet is a [Connect](http://senchalabs.github.com/connect/) and [Express](http://expressjs.com/) middleware for [Attido Mobile's](http://attidomobile.com) [PassWallet](http://passwallet.attidomobile.com) API.
