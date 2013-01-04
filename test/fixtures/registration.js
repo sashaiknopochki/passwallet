@@ -1,4 +1,4 @@
-var Registration = function (attributes) {
+var Registration = module.exports = function (attributes) {
 	if ('object' === typeof attributes) {
 		for (var attribute in attributes) {
 			this[attribute] = attributes[attribute];
@@ -23,5 +23,3 @@ Registration.all = function (query, callback) {
 	}
 	return callback(null, []);
 };
-
-module.exports = Registration;

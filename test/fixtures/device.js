@@ -1,4 +1,4 @@
-var Device = function (attributes) {
+var Device = module.exports = function (attributes) {
 	if ('object' === typeof attributes) {
 		for (var attribute in attributes) {
 			this[attribute] = attributes[attribute];
@@ -22,5 +22,3 @@ Device.all = function (query, callback) {
 	}
 	return callback(null, []);
 };
-
-module.exports = Device;
