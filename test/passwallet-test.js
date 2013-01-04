@@ -94,22 +94,22 @@ describe('API', function() {
 				.expect(400, done); // Bad Request
 		});
 	});
-	describe('push update notification', function() {
-		it('single', function(done) {
-			assert.doesNotThrow(function () {
-				passwallet.pushUpdate(Pass.passes, function (err, passes) {
-					if (err) throw err;
-				});
-			});
-			done();
-		});
-		it('multiple', function(done) {
-			assert.doesNotThrow(function () {
-				passwallet.pushUpdate(Pass.passes, function (err, passes) {
-					if (err) throw err;
-				});
-			});
-			done();
-		});
-	});
+	// describe('push update notification', function() {
+	// 	it('single', function(done) {
+	// 		assert.doesNotThrow(function () {
+	// 			passwallet.pushUpdate(Pass.passes, function (err, passes) {
+	// 				if (err) throw err;
+	// 			});
+	// 		});
+	// 		done();
+	// 	});
+	// 	it('multiple', function(done) {
+	// 		assert.doesNotThrow(function () {
+	// 			passwallet.pushUpdate(Pass.passes, function (err, passes) {
+	// 				if (err) throw err;
+	// 			});
+	// 		});
+	// 		done();
+	// 	});
+	// });
 });
